@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Components/organisms/Header';
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import colors from '../utils/style/colors';
+import { colors } from '../Components/Styles/colors';
 
 
 const ErrorWrapper = styled.section`
@@ -62,18 +62,18 @@ font-size: 0.875rem;
  `
 
 function Error(props) {
-    return (
-        <div>
-            <Header />
-            <ErrorWrapper>
+  return (
+    <div>
+      <Header />
+      <ErrorWrapper>
 
-                <ErrorNumber> 404 </ErrorNumber>
-                <ErrorText>Oups ! La page que vous demandez n'existe pas.</ErrorText>
-                <RetunrLink to="/">Retourner sur la page d’accueil</RetunrLink>
-            </ErrorWrapper>
-        </div>
+        <ErrorNumber> 404 </ErrorNumber>
+        <ErrorText>Oups ! La page que vous demandez n'existe pas.</ErrorText>
+        <RetunrLink to="/">Retourner sur la page d’accueil</RetunrLink>
+      </ErrorWrapper>
+    </div>
 
-    );
+  );
 }
 
 export default Error;

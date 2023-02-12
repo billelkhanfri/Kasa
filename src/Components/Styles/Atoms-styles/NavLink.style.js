@@ -1,6 +1,5 @@
-
 import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import { colors } from '../colors'
 import { NavLink } from 'react-router-dom'
 
 
@@ -24,4 +23,3 @@ export const StyledLink = styled(NavLink)`
   }
 
  `
-

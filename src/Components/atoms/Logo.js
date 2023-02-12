@@ -1,22 +1,12 @@
 import React from 'react';
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { HomeLogo } from '../Styles/Atoms-styles/Logo.style'
 import Logos from '../../assets/logo_kasa.svg'
 
-const HomeLogo = styled.img`
-  width: 145px;
-  
-       @media  (min-width: 768px) {
-   width: 210px;
-   height: 68px;
-   margin-top: 20px;
-    
-  }
-`
-function Logo(props) {
+const Logo = () => {
   return (
-    <Link to="/"><HomeLogo src={Logos} /></Link>
+    <Link to="/"> <HomeLogo src={Logos}></HomeLogo></Link>
   );
-}
+};
 
 export default Logo;
