@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "../Styles/colors";
+import PropTypes from "prop-types";
 
 export const HostWrapper = styled.div`
   display: flex;
@@ -35,6 +36,18 @@ const Host = ({ host }) => {
       <HostImage src={host.picture} alt={host.name} />
     </HostWrapper>
   );
+};
+
+Host.propTypes = {
+  title: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  host: PropTypes.object.isRequired,
+};
+
+Host.defaultProps = {
+  location: "",
+  title: "",
+  host: {},
 };
 
 export default Host;
