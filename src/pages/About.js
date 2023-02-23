@@ -4,8 +4,8 @@ import HeroBanner from "../Components/molecules/HeroBanner";
 import Footer from "../Components/organisms/Footer";
 import Header from "../Components/organisms/Header";
 import AboutData from "../Local-json/about.json";
-import Banner from "../assets/About-Banner.svg";
-console.log(window.location.search);
+import Banner from "../assets/about.png";
+import PropTypes from "prop-types";
 
 function About(props) {
   return (
@@ -25,5 +25,12 @@ function About(props) {
     </>
   );
 }
+About.propTypes = {
+  picture: PropTypes.string.isRequired,
+};
 
+About.defaultProps = {
+  title: "",
+  picture: "",
+};
 export default About;

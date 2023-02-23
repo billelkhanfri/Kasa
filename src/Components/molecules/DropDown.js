@@ -4,6 +4,7 @@ import Arrow from "../../assets/Arrow.svg";
 import { colors } from "../Styles/colors";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const GobalWrapper = styled.div`
   width: 90%;
@@ -41,8 +42,8 @@ const ArrowImg = styled.img`
   width: 8.98px;
   height: 15.2px;
   @media (min-width: 768px) {
-    width: 14.06px;
-    height: 24px;
+    width: 16px;
+    height: 27px;
   }
 `;
 
@@ -66,27 +67,25 @@ const Content = styled.div`
 `;
 
 function DropDown(props) {
-  const getDropStyle = (pathname) => {
-    if (pathname === `/logement/${logementId}`) {
-      return "18";
-    }
-  };
-
   const getDropHeight = (pathname) => {
     if (pathname === `/logement/${logementId}`) {
-      return "249px";
+      const height = {
+        "@media(minWidth: 768px)": {
+          height: "249px",
+        },
+      };
+      return height;
     }
   };
   const { logementId } = useParams();
   const [toggle, setToggle] = useState(true);
   const location = useLocation();
-  const DropFont = getDropStyle(location.pathname);
   const DropH = getDropHeight(location.pathname);
 
   return (
     <GobalWrapper>
       <DropDownSeen onClick={() => setToggle(!toggle)}>
-        <Title style={{ fontSize: DropFont }}>{props.title}</Title>
+        <Title>{props.title}</Title>
         <ArrowImg
           src={Arrow}
           alt="Arrow"
@@ -96,13 +95,18 @@ function DropDown(props) {
 
       {toggle && (
         <ContentWrapper>
-          <Content style={({ fontSize: DropFont }, { height: DropH })}>
-            {props.content}
-          </Content>
+          <Content>{props.content}</Content>
         </ContentWrapper>
       )}
     </GobalWrapper>
   );
 }
+DropDown.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+DropDown.defaultProps = {
+  title: "",
+};
 
 export default DropDown;

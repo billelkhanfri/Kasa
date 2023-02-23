@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import Header from "../Components/organisms/Header";
 import Footer from "../Components/organisms/Footer";
 import { useParams } from "react-router-dom";
 import Slider from "../Components/molecules/Slider";
-import { useEffect } from "react";
 import logement from "../Local-json/logements.json";
 import AccomodationTitle from "../Components/atoms/AccomodationTitle";
 import Tag from "../Components/atoms/Tag";
@@ -11,6 +9,7 @@ import Host from "../Components/atoms/Host";
 import Rate from "../Components/molecules/Rate";
 import styled from "styled-components";
 import DropDown from "../Components/molecules/DropDown";
+import PropTypes from "prop-types";
 
 const HostRateWrapper = styled.div`
   display: flex;
@@ -30,10 +29,13 @@ const SectionWrapper = styled.div`
   }
 `;
 const SectionTwoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   @media (min-width: 768px) {
     display: flex;
     width: 90%;
     margin: 10px auto;
+    flex-direction: row;
     justify-content: space-between;
     gap: 76px;
   }
@@ -96,5 +98,24 @@ function Logement() {
     </>
   );
 }
+Logement.propTypes = {
+  location: PropTypes.string.isRequired,
+  tags: PropTypes.string.isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
+  title: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired,
+
+  host: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
+Logement.defaultProps = {
+  location: "",
+  tags: "",
+  pictures: [],
+  title: "",
+  rating: "",
+
+  host: {},
+};
 
 export default Logement;

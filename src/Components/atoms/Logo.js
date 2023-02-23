@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logos from "../../assets/logo_kasa.svg";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 export const HomeLogo = styled.img`
   width: 145px;
@@ -21,5 +22,11 @@ const Logo = () => {
     </Link>
   );
 };
+Logo.propTypes = {
+  Logos: PropTypes.string.isRequired,
+};
 
+Logo.defaultProps = {
+  Logos: Logos,
+};
 export default Logo;

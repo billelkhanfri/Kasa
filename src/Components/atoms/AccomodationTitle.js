@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "../Styles/colors";
+import PropTypes from "prop-types";
 
 export const TitleWrapper = styled.div``;
 export const TitleStyle = styled.h1`
@@ -29,5 +30,14 @@ function AccomodationTitle({ title, location }) {
     </>
   );
 }
+AccomodationTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+};
+
+AccomodationTitle.defaultProps = {
+  location: "",
+  title: "",
+};
 
 export default AccomodationTitle;

@@ -2,6 +2,8 @@ import React from "react";
 import { colors } from "../Styles/colors";
 import Star from "../atoms/Star";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
 const StyledStars = styled.div`
   width: 150px;
 `;
@@ -19,6 +21,14 @@ export const Rate = ({ rating }) => {
   }
 
   return <StyledStars>{stars}</StyledStars>;
+};
+
+Rate.propTypes = {
+  rating: PropTypes.string.isRequired,
+};
+
+Rate.defaultProps = {
+  rating: "",
 };
 
 export default Rate;

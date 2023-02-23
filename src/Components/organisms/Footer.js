@@ -2,6 +2,7 @@ import React from "react";
 import Logos from "../../assets/footer_logo.svg";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 export const FooterWrapper = styled.div`
   margin-top: 20px;
@@ -30,9 +31,15 @@ function Footer(props) {
       <Link to="/">
         <FooterLogo src={Logos} />
       </Link>
-      <span>© 2020 Kasa. All rights reserved</span>
+      <span> &copy; {new Date().getFullYear()} Kasa. All rights reserved</span>
     </FooterWrapper>
   );
 }
+Footer.propTypes = {
+  Logos: PropTypes.string.isRequired,
+};
 
+Footer.defaultProps = {
+  Logos: Logos,
+};
 export default Footer;

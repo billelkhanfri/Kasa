@@ -1,12 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
 export const CardDiv = styled.li`
   list-style: none;
   height: 255px;
   position: relative;
   margin-bottom: 20px;
+  transition: all 0.3s ease-out;
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
   &::before {
     content: "";
     position: absolute;
@@ -26,6 +33,9 @@ export const CardDiv = styled.li`
   @media (min-width: 768px) {
     height: 340px;
     width: 340px;
+
+    margin-bottom: 20px;
+    box-sizing: border-box;
   }
 `;
 
@@ -49,14 +59,34 @@ export const CardTitle = styled.h2`
 `;
 
 const Thumb = ({ cover, title, id }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <Link to={`/logement/${id}`} key={`${id}`}>
-      <CardDiv>
+      <CardDiv
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        isHovered={isHovered}>
         <CardCover src={cover} />
         <CardTitle>{title}</CardTitle>
       </CardDiv>
     </Link>
   );
 };
+Thumb.propTypes = {
+  title: PropTypes.string.isRequired,
+  cover: PropTypes.string.isRequired,
+};
 
+Thumb.defaultProps = {
+  cover: "",
+  title: "",
+};
 export default Thumb;

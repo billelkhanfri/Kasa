@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const BannerWrapper = styled.div`
   width: 90%;
@@ -74,6 +75,15 @@ const HeroBanner = (props) => {
       <HeroText> {props.text} </HeroText>
     </BannerWrapper>
   );
+};
+HeroBanner.propTypes = {
+  picture: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+HeroBanner.defaultProps = {
+  picture: "",
+  text: "",
 };
 
 export default HeroBanner;

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 export const SliderWrapper = styled.div`
   width: 90%;
@@ -77,6 +78,14 @@ const Slider = ({ images }) => {
         }}></SliderStyle>
     </SliderWrapper>
   );
+};
+
+Slider.propTypes = {
+  currentImage: PropTypes.string.isRequired,
+};
+
+Slider.defaultProps = {
+  currentImage: "",
 };
 
 export default Slider;
