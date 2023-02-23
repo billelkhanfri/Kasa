@@ -64,6 +64,15 @@ function Logement() {
     description,
     equipments,
   } = logementData;
+  const styles = {
+    fontSize: "16px",
+    color: "red",
+
+    "@media (min-width: 768px)": {
+      fontSize: "20px",
+      color: "green",
+    },
+  };
 
   return (
     <>
@@ -91,7 +100,8 @@ function Logement() {
           content={
             equipments &&
             equipments?.map((eq) => <div key={Math.random()}> {eq}</div>)
-          }></DropDown>
+          }
+          styles={styles}></DropDown>
       </SectionTwoWrapper>
 
       <Footer />

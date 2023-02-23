@@ -13,10 +13,10 @@ function About(props) {
       <Header />
       <HeroBanner picture={Banner} hauteur={"223px"}></HeroBanner>
       <>
-        {AboutData.map((about) => {
+        {AboutData.map((abouts) => {
           return (
-            <div key={about.title}>
-              <DropDown {...about} />
+            <div key={abouts.title}>
+              <DropDown {...abouts} exportedTo="about" />
             </div>
           );
         })}
