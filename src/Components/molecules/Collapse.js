@@ -2,8 +2,8 @@ import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Arrow from "../../assets/Arrow.svg";
 import { colors } from "../Styles/colors";
-
 import PropTypes from "prop-types";
+
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -62,7 +62,7 @@ const ContentWrapper = styled.div`
   background: #f6f6f6;
   border-radius: 5px 0px;
 
-  animation: ${fadeIn} 0.3s ease-in-out;
+  animation: ${fadeIn} 0.1s ease-in-out;
   animation-fill-mode: forwards;
 
   transform: "translateY(0)";

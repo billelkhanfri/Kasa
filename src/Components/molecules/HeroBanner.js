@@ -27,9 +27,13 @@ export const BannerWrapper = styled.div`
     height: 223px;
     margin-top: 40px;
     border-radius: 25px;
+
     &::before {
       border-radius: 25px;
     }
+  }
+  @media (min-width: 768px) {
+    width: 86%;
   }
 `;
 export const BannerImage = styled.img`

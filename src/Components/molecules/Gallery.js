@@ -4,7 +4,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 export const SliderWrapper = styled.div`
-  width: 90%;
+  width: 86%;
   margin: 20px auto 10px auto;
   height: 255px;
   position: relative;

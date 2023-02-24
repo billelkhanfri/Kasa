@@ -9,6 +9,9 @@ export const NavContainer = styled.div`
   width: 90%;
   margin: 40px auto 0px auto;
   height: 47px;
+  @media (min-width: 768px) {
+    width: 86%;
+  }
 `;
 
 function Header() {
