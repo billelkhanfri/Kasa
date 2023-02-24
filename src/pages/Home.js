@@ -1,29 +1,32 @@
 import React from "react";
-import Header from "../Components/organisms/Header";
-import Footer from "../Components/organisms/Footer";
-import HeroBanner from "../Components/molecules/HeroBanner";
-import Thumb from "../Components/atoms/Thumb";
+import Header from "../components/organisms/Header";
+import Footer from "../components/organisms/Footer";
+import HeroBanner from "../components/molecules/HeroBanner";
+import Thumb from "../components/atoms/Thumb";
 import useFetch from "../utils/useFetch";
 import styled from "styled-components";
 import Banner from "./../assets/home.png";
 import PropTypes from "prop-types";
-import KasaLoader from "../Components/organisms/Loader";
-import Error from "./Error";
+import KasaLoader from "../components/organisms/Loader";
 
-export const CardWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
+const CardSection = styled.div`
   width: 90%;
   margin: 20px auto;
-
   @media (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    row-gap: 50px;
-    margin: 50px auto;
-    padding: 56px 0px;
     background-color: #f6f6f6;
     border-radius: 25px;
-    justify-items: center;
+  }
+`;
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    row-gap: 42px;
+    column-gap: 100px;
+    padding-top: 75px;
+    padding-bottom: 75px;
   }
 `;
 
@@ -31,7 +34,7 @@ function Home() {
   const { data, loading, error } = useFetch("/db/logements.json");
   if (loading) return <KasaLoader></KasaLoader>;
 
-  if (error) return <Error />;
+  if (!data) return error;
 
   return (
     <>
@@ -40,18 +43,19 @@ function Home() {
         picture={Banner}
         alt="Image d'une forêt au bord de mer"
         text="Chezvous, partout et ailleurs"></HeroBanner>
-
-      <CardWrapper>
-        {data &&
-          data?.map((logement) => (
-            <Thumb
-              key={`logement-${logement.id}`}
-              id={logement.id}
-              title={logement.title}
-              cover={logement.cover}
-            />
-          ))}
-      </CardWrapper>
+      <CardSection>
+        <CardWrapper>
+          {data &&
+            data?.map((logement) => (
+              <Thumb
+                key={`logement-${logement.id}`}
+                id={logement.id}
+                title={logement.title}
+                cover={logement.cover}
+              />
+            ))}
+        </CardWrapper>
+      </CardSection>
       <Footer />
     </>
   );

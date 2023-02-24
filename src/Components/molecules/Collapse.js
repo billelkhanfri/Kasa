@@ -1,9 +1,19 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Arrow from "../../assets/Arrow.svg";
 import { colors } from "../Styles/colors";
 
 import PropTypes from "prop-types";
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const GobalWrapper = styled.div`
   width: 90%;
@@ -48,8 +58,14 @@ const ArrowImg = styled.img`
 
 const ContentWrapper = styled.div`
   height: auto;
+  overflow: hidden;
   background: #f6f6f6;
   border-radius: 5px 0px;
+
+  animation: ${fadeIn} 0.3s ease-in-out;
+  animation-fill-mode: forwards;
+
+  transform: "translateY(0)";
 `;
 
 const Content = styled.div`
@@ -68,8 +84,8 @@ const Content = styled.div`
   }
 `;
 
-function DropDown(props) {
-  const [toggle, setToggle] = useState(true);
+function Collapse(props) {
+  const [toggle, setToggle] = useState(false);
 
   return (
     <GobalWrapper>
@@ -91,14 +107,14 @@ function DropDown(props) {
   );
 }
 
-DropDown.propTypes = {
+Collapse.propTypes = {
   title: PropTypes.string.isRequired,
   exportedto: PropTypes.string.isRequired,
 };
 
-DropDown.defaultProps = {
+Collapse.defaultProps = {
   title: "",
   exportedto: "",
 };
 
-export default DropDown;
+export default Collapse;

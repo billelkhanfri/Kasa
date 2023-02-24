@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { colors } from "../Styles/colors";
 import { NavLink } from "react-router-dom";
 
-
 export const StyledLink = styled(NavLink)`
   font-size: 3.45vw;
   font-weight: 500;

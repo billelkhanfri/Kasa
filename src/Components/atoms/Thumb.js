@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import DefaultPicture from "../../assets/Thumb.png";
 
 export const CardDiv = styled.li`
   list-style: none;
@@ -10,6 +11,8 @@ export const CardDiv = styled.li`
   position: relative;
   margin-bottom: 20px;
   transition: all 0.3s ease-out;
+  background-color: #ff6060;
+  border-radius: 10px;
   &:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
@@ -86,7 +89,7 @@ Thumb.propTypes = {
 };
 
 Thumb.defaultProps = {
-  cover: "",
+  cover: DefaultPicture,
   title: "",
 };
 export default Thumb;

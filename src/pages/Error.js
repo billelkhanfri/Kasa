@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../Components/organisms/Header";
+import Header from "../components/organisms/Header";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { colors } from "../Components/Styles/colors";
+import { colors } from "../components/Styles/colors";
 
 const ErrorWrapper = styled.section`
   display: flex;

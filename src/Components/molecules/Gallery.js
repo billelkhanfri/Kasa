@@ -30,6 +30,7 @@ export const LeftArrow = styled.div`
   color: white;
   z-index: 1;
   cursor: pointer;
+
   @media (min-width: 768px) {
     top: 5%;
     transform: translate(0, 50%);
@@ -54,7 +55,7 @@ export const RightArrow = styled.div`
   }
 `;
 
-const Slider = ({ images }) => {
+const Gallery = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const goToPrevious = () => {
     const isFirstSlide = currentImage === 0;
@@ -70,8 +71,9 @@ const Slider = ({ images }) => {
 
   return (
     <SliderWrapper>
-      <LeftArrow onClick={goToPrevious}> ‹</LeftArrow>
-      <RightArrow onClick={goToNext}>›</RightArrow>
+      {images.length > 1 && <LeftArrow onClick={goToPrevious}>‹</LeftArrow>}
+      {images.length > 1 && <RightArrow onClick={goToNext}>›</RightArrow>}
+
       <SliderStyle
         style={{
           backgroundImage: ` url(${images[currentImage]})`,
@@ -80,12 +82,12 @@ const Slider = ({ images }) => {
   );
 };
 
-Slider.propTypes = {
+Gallery.propTypes = {
   currentImage: PropTypes.string.isRequired,
 };
 
-Slider.defaultProps = {
+Gallery.defaultProps = {
   currentImage: "",
 };
 
-export default Slider;
+export default Gallery;
