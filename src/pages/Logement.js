@@ -2,7 +2,6 @@ import Header from "../components/organisms/Header";
 import Footer from "../components/organisms/Footer";
 import { useParams } from "react-router-dom";
 import Gallery from "../components/molecules/Gallery";
-//import logement from "../local-json/logements.json";
 import AccomodationTitle from "../components/atoms/AccomodationTitle";
 import Tag from "../components/atoms/Tag";
 import Host from "../components/atoms/Host";
@@ -23,7 +22,7 @@ const HostRateWrapper = styled.div`
   }
 `;
 const SectionWrapper = styled.div`
-  width: 90%;
+  width: 86%;
   margin: 10px auto;
   @media (min-width: 768px) {
     display: flex;
@@ -35,7 +34,7 @@ const SectionTwoWrapper = styled.div`
   flex-direction: column;
   @media (min-width: 768px) {
     display: flex;
-    width: 90%;
+    width: 86%;
     margin: 10px auto;
     flex-direction: row;
     justify-content: space-between;

@@ -15,18 +15,21 @@ const CardSection = styled.div`
   @media (min-width: 768px) {
     background-color: #f6f6f6;
     border-radius: 25px;
+    width: 86%;
   }
 `;
-const CardWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 
+const CardWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
+  justify-items: center;
   @media (min-width: 768px) {
-    row-gap: 42px;
-    column-gap: 100px;
-    padding-top: 75px;
-    padding-bottom: 75px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    row-gap: 60px;
+    padding: 75px 0px;
+    justify-items: center;
+    width: 86%;
+    margin: auto;
   }
 `;
 
