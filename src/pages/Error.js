@@ -58,7 +58,9 @@ function Error(props) {
       <ErrorWrapper>
         <ErrorNumber> 404 </ErrorNumber>
         <ErrorText>Oups ! La page que vous demandez n'existe pas.</ErrorText>
-        <RetunLink to="/">Retourner sur la page d’accueil</RetunLink>
+        <RetunLink to="/">
+          Retourner sur la page d’accueil {props.error}
+        </RetunLink>
       </ErrorWrapper>
     </div>
   );

@@ -1,6 +1,6 @@
 import Header from "../components/organisms/Header";
 import Footer from "../components/organisms/Footer";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Gallery from "../components/molecules/Gallery";
 import AccomodationTitle from "../components/atoms/AccomodationTitle";
 import Tag from "../components/atoms/Tag";
@@ -11,6 +11,7 @@ import Collapse from "../components/molecules/Collapse";
 import PropTypes from "prop-types";
 import KasaLoader from "../components/organisms/Loader";
 import useFetch from "../utils/useFetch";
+import Error from "./Error";
 
 const HostRateWrapper = styled.div`
   display: flex;
@@ -43,15 +44,21 @@ const SectionTwoWrapper = styled.div`
 `;
 
 function Logement() {
-  const { data, loading, error } = useFetch("/db/logements.json");
   const { logementId } = useParams();
+  const { data, loading } = useFetch("/db/logements.json");
+
+  const locations = useLocation();
+
   if (loading) return <KasaLoader></KasaLoader>;
 
   const logementData =
     data && data.find((logement) => logement.id === logementId);
-  if (!logementData) {
-    return error;
+
+  if (!logementData || logementId !== locations.pathname.split("/")[2]) {
+    return <Error />;
   }
+
+  console.log(logementId);
   const {
     title,
     pictures,
