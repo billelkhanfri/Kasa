@@ -68,7 +68,7 @@ const ContentWrapper = styled.div`
   transform: "translateY(0)";
 `;
 
-const Content = styled.div`
+const Content = styled.ul`
   margin: 0px;
   pointer-events: none;
   color: #ff6060;
@@ -76,6 +76,7 @@ const Content = styled.div`
   line-height: 18px;
   padding: 10px 15px;
   font-weight: 400;
+  list-style-type: none;
 
   @media (min-width: 768px) {
     font-size: ${(props) => (props.exportedto === "about" ? "24px" : "18px")};

@@ -95,7 +95,7 @@ function Logement() {
           title="Équipements"
           content={
             equipments &&
-            equipments?.map((eq) => <div key={Math.random()}> {eq}</div>)
+            equipments?.map((eq) => <li key={Math.random()}> {eq}</li>)
           }></Collapse>
       </SectionTwoWrapper>
 
