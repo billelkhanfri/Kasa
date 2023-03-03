@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { colors } from "../Styles/colors";
 
 const SliderWrapper = styled.div`
   width: 86%;
@@ -69,9 +70,11 @@ const DotContainer = styled.div`
 const Dot = styled.div`
   width: 12px;
   height: 12px;
+  border: 2px solid ${colors.primary};
   border-radius: 50%;
   margin: 0 6px;
-  background-color: ${(props) => (props.active ? "white" : "#d8d8d8")};
+  background-color: ${(props) =>
+    props.active ? colors.primary : colors.lightGray};
   cursor: pointer;
 `;
 
