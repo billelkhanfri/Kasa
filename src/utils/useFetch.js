@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 
 function useFetch(url) {
@@ -9,11 +9,15 @@ function useFetch(url) {
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      axios
-        .get(url)
-
+      fetch(url)
         .then((response) => {
-          setData(response.data);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setData(data);
         })
         .catch((err) => {
           setError(err);
@@ -26,4 +30,5 @@ function useFetch(url) {
 
   return { data, loading, error };
 }
+
 export default useFetch;

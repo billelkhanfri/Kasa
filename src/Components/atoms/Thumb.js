@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import DefaultPicture from "../../assets/Thumb.png";
 
 export const CardDiv = styled.li`
@@ -62,21 +61,9 @@ export const CardTitle = styled.h2`
 `;
 
 const Thumb = ({ cover, title, id }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
   return (
     <Link to={`/logement/${id}`} key={`${id}`}>
-      <CardDiv
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        isHovered={isHovered}>
+      <CardDiv>
         <CardCover src={cover} />
         <CardTitle>{title}</CardTitle>
       </CardDiv>

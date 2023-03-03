@@ -58,7 +58,6 @@ function Logement() {
     return <Error />;
   }
 
-  console.log(logementId);
   const {
     title,
     pictures,
