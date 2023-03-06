@@ -22,6 +22,9 @@ const LoaderText = styled.div`
   font-size: 2rem;
   font-weight: bold;
   margin-top: 1rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 
   @keyframes loader {
     0% {
